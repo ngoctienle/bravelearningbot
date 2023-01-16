@@ -13,7 +13,11 @@ var msgid = Libs.BraveCommon.getMsgid();
 var dashboardTxt = Bot.getProperty("dashboardTxt", "No Setup At The Moment");
 var dashboardBtn = [
   [
-    { text: "Subscription", callback_data: "/subscription" },
+    { text: "Profile", callback_data: "/profile" },
+    { text: "Deposit", callback_data: "/deposit" },
+  ],
+  [
+    { text: "Package", callback_data: "/package" },
     { text: "Investment", callback_data: "/investment" },
   ],
   [{ text: "Admin Panel", callback_data: "/adminpanel" }],

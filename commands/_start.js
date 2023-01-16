@@ -16,6 +16,16 @@ var welcomeBtn = [
       text: "Dashboard",
       callback_data: "/dashboard",
     },
+    {
+      text: "Introduction",
+      callback_data: "/intro",
+    },
+  ],
+  [
+    {
+      text: "Support",
+      callback_data: "/contact",
+    },
   ],
 ];
 
@@ -45,3 +55,13 @@ if (params && params == "r") {
     },
   });
 }
+
+Api.editMessageText({
+  chat_id: chat.chatid,
+  text: welcomeTxt,
+  message_id: msgid,
+  parse_mode: "html",
+  reply_markup: {
+    inline_keyboard: welcomeBtn,
+  },
+});
