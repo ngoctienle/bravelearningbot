@@ -29,21 +29,6 @@ var welcomeBtn = [
   ],
 ];
 
-let msgid = User.getProperty("msgid");
-
-if (!msgid) {
-  Libs.BraveCommon.CallBackDeleteMsg();
-  Api.sendMessage({
-    chat_id: chat.chat_id,
-    text: welcomeTxt,
-    parse_mode: "html",
-    reply_markup: {
-      inline_keyboard: welcomeBtn,
-    },
-    on_result: "/setAttr",
-  });
-}
-
 if (params && params == "r") {
   Api.editMessageText({
     chat_id: chat.chatid,
@@ -56,12 +41,17 @@ if (params && params == "r") {
   });
 }
 
-Api.editMessageText({
-  chat_id: chat.chatid,
+let msgid = User.getProperty("msgid");
+if (!msgid) {
+  Libs.BraveCommon.CallBackDeleteMsg();
+}
+
+Api.sendMessage({
+  chat_id: chat.chat_id,
   text: welcomeTxt,
-  message_id: msgid,
   parse_mode: "html",
   reply_markup: {
     inline_keyboard: welcomeBtn,
   },
+  on_result: "/setAttr",
 });
