@@ -22,7 +22,7 @@ var welcomeBtn = [
 let msgid = User.getProperty("msgid");
 
 if (!msgid) {
-  CallBackDeleteMsg();
+  Libs.BraveCommon.CallBackDeleteMsg();
   Api.sendMessage({
     chat_id: chat.chat_id,
     text: welcomeTxt,
